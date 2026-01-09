@@ -1,21 +1,20 @@
 <?php
 
-if (file_exists(dirname(__FILE__) . '/../cardgate/cardgate.php')) {
-    require_once dirname(__FILE__) . '/../cardgate/cardgate.php';
+if ( file_exists( dirname( __FILE__ ) . '/../cardgate/cardgate.php' ) ) {
+    require_once dirname( __FILE__ ) . '/../cardgate/cardgate.php';
 } else {
     $GLOBALS['CARDGATENOTFOUND'] = 1;
     if (!class_exists('CardgatePayment')) {
         class CardgatePayment extends PaymentModule
         {
-            public function get_url()
-            {
+            public function get_url() {
             }
         }
     }
 }
 
 /**
- * CardGate - Prestashop
+ * CardGate - Prestashop.
  *
  * 2010-11-09 (LL) Version 1.00
  *   Initial release
@@ -29,11 +28,11 @@ if (file_exists(dirname(__FILE__) . '/../cardgate/cardgate.php')) {
  */
 class Cardgateafterpay extends CardgatePayment
 {
-    private $_postErrors = [];
     protected $_childClassFile = __FILE__;
+    private $_postErrors = [];
 
     /**
-     * Available payment methods setup
+     * Available payment methods setup.
      */
     public function __construct()
     {

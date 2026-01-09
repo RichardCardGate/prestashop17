@@ -23,7 +23,7 @@ if (file_exists(dirname(__FILE__) . '/../cardgate/cardgate.php')) {
  * 2011-04-18 (BZ) Version 1.01
  *   Added PayPal, updated countries for payment options
  *
- * Data for languange translations
+ * Data for language translations
  *
  *   $this->l('Pay with')
  */

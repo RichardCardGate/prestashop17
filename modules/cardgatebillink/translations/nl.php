@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatebillink}prestashop>cardgatebillink_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met ';
 $_MODULE['<{cardgatebillink}prestashop>cardgatebillink_5a49009255576b510d47531dfec6bf18'] = 'CardGate Billink';
 $_MODULE['<{cardgatebillink}prestashop>cardgatebillink_8295202f55258ac1cb55a3f596fb4268'] = 'Accepteert betalingen met CardGate Billink.';

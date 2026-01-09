@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) 2018 CardGate B.V.
  *
@@ -23,32 +24,33 @@
  * @license     The MIT License (MIT) https://opensource.org/licenses/MIT
  * @author      CardGate B.V.
  * @copyright   CardGate B.V.
- * @link        https://www.cardgate.com
+ *
+ * @see        https://www.cardgate.com
  */
-namespace cardgate\api\resource {
 
-	/**
-	 * CardGate resource object.
-	 */
-	class Base {
+namespace cardgate\api\resource;
 
-		/**
-		 * The client associated with this resource.
-		 * @var \cardgate\api\Client
-		 * @access private
-		 */
-		protected $_oClient;
+/**
+ * CardGate resource object.
+ */
+class Base
+{
+    /**
+     * The client associated with this resource.
+     *
+     * @var \cardgate\api\Client
+     */
+    protected $_oClient;
 
-		/**
-		 * The constructor.
-		 * @param \cardgate\api\Client $oClient_ The client to associate the resource with.
-		 * @access public
-		 * @api
-		 */
-		function __construct( \cardgate\api\Client $oClient_ ) {
-			$this->_oClient = $oClient_;
-		}
-
-	}
-
+    /**
+     * The constructor.
+     *
+     * @param \cardgate\api\Client $oClient_ the client to associate the resource with
+     *
+     * @api
+     */
+    public function __construct(\cardgate\api\Client $oClient_)
+    {
+        $this->_oClient = $oClient_;
+    }
 }

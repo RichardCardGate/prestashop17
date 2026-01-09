@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatebancontact}prestashop>cardgatebancontact_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met';
 $_MODULE['<{cardgatebancontact}prestashop>cardgatebancontact_342b073f73e9dd5e0fc64cb278ab8a0e'] = 'CardGate Bankcontact';
 $_MODULE['<{cardgatebancontact}prestashop>cardgatebancontact_5a090d4b78909a814c6ff7e957ebca40'] = 'Accepteert betalingen met CardGate Bancontact';

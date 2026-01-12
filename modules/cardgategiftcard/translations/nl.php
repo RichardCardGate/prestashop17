@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgategiftcard}prestashop>cardgategiftcard_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met ';
 $_MODULE['<{cardgategiftcard}prestashop>cardgategiftcard_3ce9c6627db218289c59b826306f45a8'] = 'CardGate Gift Card';
 $_MODULE['<{cardgategiftcard}prestashop>cardgategiftcard_843c2a7e4274122f16c6d05639273eeb'] = 'Accepteert betalingen met CardGate Gift Card.';

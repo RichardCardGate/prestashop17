@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatepaysafecash}prestashop>cardgatepaysafecash_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met ';
 $_MODULE['<{cardgatepaysafecash}prestashop>cardgatepaysafecash_f01e89385a14b8d73157d49e4cbafbbe'] = 'CardGate Paysafecash';
 $_MODULE['<{cardgatepaysafecash}prestashop>cardgatepaysafecash_9bc3bafc70bb036196177de8ee6f5022'] = 'Accepteert betalingen met CardGate Paysafecash';

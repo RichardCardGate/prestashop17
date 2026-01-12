@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatecrypto}prestashop>cardgatecrypto_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met ';
 $_MODULE['<{cardgatecrypto}prestashop>cardgatecrypto_9c7b8f59860fe460fd00f19317d5ef6d'] = 'CardGate Crypto';
 $_MODULE['<{cardgatecrypto}prestashop>cardgatecrypto_34e817d7aea3830da8bd4418fb054e24'] = 'Accepteert betalingen met Crypto';

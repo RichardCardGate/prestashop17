@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgateklarna}prestashop>cardgateklarna_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met';
 $_MODULE['<{cardgateklarna}prestashop>cardgateklarna_312db65024f5d71d824d4220702f6ceb'] = 'CardGate Klarna';
 $_MODULE['<{cardgateklarna}prestashop>cardgateklarna_52a592b45cbc238b4535dcf4b516c09b'] = 'Accepteert betalingen met CardGate Klarna';

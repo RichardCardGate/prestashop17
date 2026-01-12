@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) 2018 CardGate B.V.
  *
@@ -23,51 +24,58 @@
  * @license     The MIT License (MIT) https://opensource.org/licenses/MIT
  * @author      CardGate B.V.
  * @copyright   CardGate B.V.
- * @link        https://www.cardgate.com
+ *
+ * @see        https://www.cardgate.com
  */
-namespace cardgate\api {
 
-	/**
-	 * Cart instance.
-	 */
-	final class Cart {
+namespace cardgate\api;
 
-		/**
-		 * The items in this cart.
-		 * @var Client
-		 * @access private
-		 */
-		private $_aItems = [];
+/**
+ * Cart instance.
+ */
+final class Cart
+{
+    /**
+     * The items in this cart.
+     *
+     * @var Client
+     */
+    private $_aItems = [];
 
-		/**
-		 * Add a cart item to the cart.
-		 * @param int $iType_ The cart item type.
-		 * @param string $sSKU_ The SKU of the cart item.
-		 * @param string $sName_ The name of the cart item (productname).
-		 * @param string $iPrice_ The price of the cart item.
-		 * @param string $sLink_ An optional link to the product.
-		 * @return Item Returns the item that was added.
-		 * @throws Exception|\ReflectionException
-		 * @access public
-		 * @api
-		 */
-		function addItem( $iType_, $sSKU_, $sName_, $iQuantity_, $iPrice_, $sLink_ = NULL ) {
-			$oItem = new Item( $iType_, $sSKU_, $sName_, $iQuantity_, $iPrice_, $sLink_ );
-			$this->_aItems[] = $oItem;
-			return $oItem;
-		}
+    /**
+     * Add a cart item to the cart.
+     *
+     * @param int $iType_ the cart item type
+     * @param string $sSKU_ the SKU of the cart item
+     * @param string $sName_ the name of the cart item (productname)
+     * @param string $iPrice_ the price of the cart item
+     * @param string $sLink_ an optional link to the product
+     *
+     * @return Item returns the item that was added
+     *
+     * @throws Exception|\ReflectionException
+     *
+     * @api
+     */
+    public function addItem($iType_, $sSKU_, $sName_, $iQuantity_, $iPrice_, $sLink_ = null)
+    {
+        $oItem = new Item($iType_, $sSKU_, $sName_, $iQuantity_, $iPrice_, $sLink_);
+        $this->_aItems[] = $oItem;
 
-		function getAll() {
-		}
+        return $oItem;
+    }
 
-		function getData() {
-			$aData = [];
-			foreach( $this->_aItems as $oItem ) {
-				$aData[] = $oItem->getData();
-			}
-			return $aData;
-		}
+    public function getAll()
+    {
+    }
 
-	}
+    public function getData()
+    {
+        $aData = [];
+        foreach ($this->_aItems as $oItem) {
+            $aData[] = $oItem->getData();
+        }
 
+        return $aData;
+    }
 }

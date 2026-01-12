@@ -28,23 +28,23 @@
 /**
  * @since 1.5.0
  */
-class CardgateidealPaymentModuleFrontController extends ModuleFrontController {
-
+class CardgateidealPaymentModuleFrontController extends ModuleFrontController
+{
     public $ssl = true;
     public $display_column_left = false;
     public $display_column_right = false;
+
     /**
      * @see FrontController::initContent()
      */
     public function initContent()
-	{
-		$this->display_column_left = false;
-		parent::initContent();
+    {
+        $this->display_column_left = false;
+        parent::initContent();
 
         $this->context->smarty->assign('_url', $this->module->_url);
         $this->context->smarty->assign('fields', $this->module->paymentData());
-        $this->context->smarty->assign('logoname',$this->module->logoname);
-		$this->setTemplate('payment_execution.tpl');
-	}
-
+        $this->context->smarty->assign('logoname', $this->module->logoname);
+        $this->setTemplate('payment_execution.tpl');
+    }
 }

@@ -2,47 +2,54 @@
 
 use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
 
-class CardgatePayment extends PaymentModule {
-
-    var $version = '1.7.19';
-    var $tab = 'payments_gateways';
-    var $author = 'CardGate';
-    var $shop_version = _PS_VERSION_;
-    var $currencies = true;
-    var $currencies_mode = 'radio';
-    var $_html = '';
+class CardgatePayment extends PaymentModule
+{
+    public $version = '1.7.20';
+    public $tab = 'payments_gateways';
+    public $author = 'CardGate';
+    public $shop_version = _PS_VERSION_;
+    public $currencies = true;
+    public $currencies_mode = 'radio';
+    public $_html = '';
     protected $_paymentHookTpl = '';
 
-    public function install() {
-
-        if ( !parent::install() || !$this->registerHook('paymentOptions') || !$this->registerHook('paymentReturn') ) {
+    public function install()
+    {
+        if (!parent::install() || !$this->registerHook('paymentOptions') || !$this->registerHook('paymentReturn')) {
             return false;
         }
+
         return true;
 
-        $payment = strtoupper( $this->paymentcode );
+        $payment = strtoupper($this->paymentcode);
 
-        if ( !parent::install() OR ! $this->registerHook('payment') )
+        if (!parent::install() or !$this->registerHook('payment')) {
             return false;
+        }
+
         return true;
     }
 
-    public function uninstall() {
-
+    public function uninstall()
+    {
         $paymentcode = $this->paymentcode;
 
-        if ( $paymentcode == '')
+        if ($paymentcode == '') {
             return false;
+        }
 
-        $paymentcode = strtoupper( $paymentcode );
+        $paymentcode = strtoupper($paymentcode);
 
-        if ( !parent::uninstall() )
+        if (!parent::uninstall()) {
             return false;
+        }
+
         return true;
     }
 
-    public function checkPaymentCurrency($currency,$payment_method) {
-        $strictly_euro = in_array($payment_method,['cardgateideal',
+    public function checkPaymentCurrency($currency, $payment_method)
+    {
+        $strictly_euro = in_array($payment_method, ['cardgateideal',
             'cardgateidealqr',
             'cardgatebancontact',
             'cardgatebanktransfer',
@@ -51,26 +58,30 @@ class CardgatePayment extends PaymentModule {
             'cardgatedirectdebit',
             'cardgateonlineueberweisen',
             'cardgatespraypay']);
-        if ($strictly_euro && $currency != 'EUR') return false;
+        if ($strictly_euro && $currency != 'EUR') {
+            return false;
+        }
 
-        $strictly_pln = in_array($payment_method,['cardgateprzelewy24']);
-        if ($strictly_pln && $currency != 'PLN') return false;
+        $strictly_pln = in_array($payment_method, ['cardgateprzelewy24']);
+        if ($strictly_pln && $currency != 'PLN') {
+            return false;
+        }
 
         return true;
     }
 
-    public function hookPaymentOptions( $params ) {
-
-        if ( !$this->active ) {
-            return[];
+    public function hookPaymentOptions($params)
+    {
+        if (!$this->active) {
+            return [];
         }
-        if ( !$this->checkCurrency( $params['cart'] ) ) {
-            return[];
+        if (!$this->checkCurrency($params['cart'])) {
+            return [];
         }
 
-        $currency_order = new Currency( $params['cart']->id_currency );
-        $currency       = $currency_order->iso_code;
-        if (!$this->checkPaymentCurrency($currency,$this->name)) {
+        $currency_order = new Currency($params['cart']->id_currency);
+        $currency = $currency_order->iso_code;
+        if (!$this->checkPaymentCurrency($currency, $this->name)) {
             return [];
         }
 
@@ -80,52 +91,54 @@ class CardgatePayment extends PaymentModule {
 
         $display = Configuration::get('CARDGATE_PAYMENT_DISPLAY');
 
-        if ($display == 'textandlogo' || $display == 'textonly'){
-            $actionText = $this->l('Pay with').' '.$this->paymentname . $costText;
+        if ($display == 'textandlogo' || $display == 'textonly') {
+            $actionText = $this->l('Pay with') . ' ' . $this->paymentname . $costText;
         } else {
             $actionText = null;
         }
 
-        if ($display == 'textandlogo' || $display == 'logoonly' ){
-            $logo = Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/logo.gif');
+        if ($display == 'textandlogo' || $display == 'logoonly') {
+            $logo = Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/logo.gif');
         } else {
             $logo = null;
         }
 
         $paymentOption->setCallToActionText($actionText)
-                      ->setAction($this->context->link->getModuleLink('cardgate', 'validation', array(), true))
-                      ->setInputs( $this->paymentData() )
+                      ->setAction($this->context->link->getModuleLink('cardgate', 'validation', [], true))
+                      ->setInputs($this->paymentData())
                       ->setAdditionalInformation($additionalInformation)
                       ->setLogo($logo);
 
         $payment_options = [
-            $paymentOption
+            $paymentOption,
         ];
+
         return $payment_options;
     }
 
-
-
-    public function checkCurrency( $cart ) {
-        $currency_order = new Currency( $cart->id_currency );
-        $currencies_module = $this->getCurrency( $cart->id_currency );
-        if ( is_array( $currencies_module ) ) {
-            foreach ( $currencies_module as $currency_module ) {
-                if ( $currency_order->id == $currency_module['id_currency'] ) {
+    public function checkCurrency($cart)
+    {
+        $currency_order = new Currency($cart->id_currency);
+        $currencies_module = $this->getCurrency($cart->id_currency);
+        if (is_array($currencies_module)) {
+            foreach ($currencies_module as $currency_module) {
+                if ($currency_order->id == $currency_module['id_currency']) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
-    public function displayConf() {
-
-        $this->_html = $this->displayConfirmation( $this->l('Settings updated') );
+    public function displayConf()
+    {
+        $this->_html = $this->displayConfirmation($this->l('Settings updated'));
     }
 
-    public function paymentData() {
-        $data =   [
+    public function paymentData()
+    {
+        $data = [
             'option' => [
                 'name' => 'option',
                 'type' => 'hidden',
@@ -135,13 +148,14 @@ class CardgatePayment extends PaymentModule {
                 'name' => 'paymentname',
                 'type' => 'hidden',
                 'value' => $this->paymentname,
-            ]
+            ],
         ];
 
         return $data;
     }
 
-    protected function generateForm() {
+    protected function generateForm()
+    {
         return false;
     }
 }

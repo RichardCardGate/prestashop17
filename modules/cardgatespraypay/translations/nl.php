@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatespraypay}prestashop>cardgatespraypay_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met';
 $_MODULE['<{cardgatespraypay}prestashop>cardgatespraypay_c6595881e4de8ffbafefed1eb1491479'] = 'CardGate SprayPay';
 $_MODULE['<{cardgatespraypay}prestashop>cardgatespraypay_29ad3a89f3bbaa5522c505f2629c699a'] = 'Accepteert betalingen met CardGate SprayPay';

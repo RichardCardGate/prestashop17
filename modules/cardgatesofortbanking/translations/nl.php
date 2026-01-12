@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatesofortbanking}prestashop>cardgatesofortbanking_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met';
 $_MODULE['<{cardgatesofortbanking}prestashop>cardgatesofortbanking_3aaef313744284815ce102ae9610a638'] = 'CardGate SOFORT Banking';
 $_MODULE['<{cardgatesofortbanking}prestashop>cardgatesofortbanking_d0c3a962baf71dc859573e83548eaa7a'] = 'Accepteert betalingen met CardGate SOFORT Banking.';

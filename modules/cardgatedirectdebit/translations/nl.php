@@ -1,7 +1,7 @@
 <?php
 
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 $_MODULE['<{cardgatedirectdebit}prestashop>cardgatedirectdebit_da9c72b9e543135f3f59e3c8ac68ef35'] = 'Betaal met';
 $_MODULE['<{cardgatedirectdebit}prestashop>cardgatedirectdebit_529837bcd541032b108b8026081c7df9'] = 'CardGate DirectDebit';
 $_MODULE['<{cardgatedirectdebit}prestashop>cardgatedirectdebit_827a0aae97fe30c59d8dd9a87c2e6aef'] = 'Accepteert betalingen met CardGate  DirectDebit';

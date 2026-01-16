@@ -150,8 +150,17 @@ class CardgateValidationModuleFrontController extends ModuleFrontController
                     $oItem->setVatIncluded($cartitem['vat_inc']);
                 }
 
-                // Tools::redirect('index.php?controller=order-confirmation&id_cart='.$cart->id.'&id_module='.$this->module->id.'&id_order='.$this->module->currentOrder.'&key='.$customer->secure_key);
-                // $data ['return_url'] = Tools::getHttpHost ( true, true ) . __PS_BASE_URI__ . 'index.php?controller=order-confirmation&id_cart=' . ( int ) $cart->id .  '&id_module=' . $this->id . '&id_order='.  . '&key=' . $customer->secure_key;
+                $data['return_url'] = $this->context->link->getPageLink(
+                    'order-confirmation',
+                    true,
+                    (int) $this->context->language->id,
+                    [
+                        'id_cart'   => (int) $cart->id,
+                        'id_module' => (int) $this->module->id,
+                        'id_order'  => (int) $this->module->currentOrder,
+                        'key'       => $customer->secure_key
+                    ]
+                );
 
                 $oTransaction->setCallbackUrl($data['callback']);
                 $oTransaction->setSuccessUrl($data['return_url']);

@@ -26,7 +26,7 @@ class Cardgate extends CardgatePayment
 
     public function __construct()
     {
-        Configuration::updateValue( 'CARDGATE_MODULE_VERSION', '1.7.20' );
+        Configuration::updateValue( 'CARDGATE_MODULE_VERSION', '1.7.21' );
         $this->name = 'cardgate';
         $this->paymentcode = 'cardgate';
         $this->paymentname = 'CardGate';

@@ -2,7 +2,7 @@
 <module>
     <name>cardgate</name>
     <displayName><![CDATA[CardGate Bank common]]></displayName>
-    <version><![CDATA[1.7.20]]></version>
+    <version><![CDATA[1.7.21]]></version>
     <description><![CDATA[CardGate Bank base module.]]></description>
     <author><![CDATA[CardGate]]></author>
     <tab><![CDATA[payments_gateways]]></tab>
